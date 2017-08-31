@@ -68,15 +68,23 @@
 </div-->
   <div id="contactform">
 	   
-        <div class="brand">my General Book</div>
+         <div class="brand"><a href="#" id="toggler" title="Click what to do" style="color: #42DCA3;">
+	   <i class="fa fa-info-circle" aria-hidden="true" style="35px !important;"></i></a>General Book</div><!--"brand"-->		
+
   </div><!--div id="contactform"-->
 <div id="navigation">
     <ul class="nav-list">
 
+	<li  id="js-show-all" class="btn btn-circle"><a href="all.html">
+		<i class="fa fa-users" aria-hidden="true"></i></a></li>
+		<li id="js-search" class="btn btn-circle"><a href="search.html">
+		<i class="fa fa-search" aria-hidden="true"></i></a></li>
+		<li id="js-add-new" class="btn btn-circle"><!--a class="toggler" href="#"--><a href="add.html">
+		<i class="fa fa-plus" aria-hidden="true"></i></a></li>
 
-        <li id="js-show-all">ALL</li>
+        <!--li id="js-show-all">ALL</li>
         <li id="js-search">SEARCH</li>
-        <li id="js-add-new">NEW</li>
+        <li id="js-add-new">NEW</li-->
 
 
     </ul>
@@ -89,7 +97,7 @@
         <div id="results">
           
       </div>
-      <div class="btn btn-circle"><i></div>
+      <div></div>
         <div>
             <label>
                 <input type="text" name="search" id="search" placeholder="Enter name of contact" />
