@@ -30,7 +30,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body> 
+ <body onload="ShowDetail(document.forms['addressbook'].contactlist)">
 <div id="mymap"></div>
 	<!--div class="map-wrapper">
       <ui-gmap-google-map><div id="mymap"></div></ui-gmap-google-map>
@@ -89,9 +89,263 @@
 
     </ul>
 </div>
+<title>SOPHIAKNOWS | CODEBASE > JAVASCRIPT >  FORMS PHONEBOOK</title>
+<script type="" src="senators.js"></script>
+<script type="text/javascript">
+
+	
+function TypeDown(s,t) {
+	suggestions=new Array();
+	var y=0;
+	for(m=0;m<senators.length;m++) { 	// GET MATCHES
+		if(senators[m].name.toLowerCase().indexOf(t.value.toLowerCase())>-1) {
+			suggestions[y]=senators[m].name;
+			y++;
+			}
+		}
+	s.length=suggestions.length; 	// RESET SELECT LENGTH
+	for(i=0;i<suggestions.length;i++) { 	// POPULATE SUGGESTIONS
+		s.options[i].value=suggestions[i];	
+		s.options[i].text=suggestions[i];	
+		}
+	}
+
+
+		
+function ShowDetail(s) {
+	query=((s.selectedIndex>-1)?s.options[s.selectedIndex].value:s.options[0].value);
+	viewer=document.getElementById('detail');
+	viewer.innerHTML=ReturnDetail(query);
+	}
+
+function ReturnDetail(f) {
+	var detail="";
+	for(m=0;m<parent.senators.length;m++) {
+		if(parent.senators[m].name.toLowerCase().indexOf(f.toLowerCase())>-1) {
+			detail+="<p>&nbsp;<\/p>";
+			detail+="<table width=90% align=center padding=5 cellspacing=5>";
+			detail+="<tr><td colspan=2 class=name align=center>"+parent.senators[m].name+"<\/td><\/tr>";
+			detail+="<tr><th>state:<\/th><td>"+parent.senators[m].state+"<\/td><\/tr>";
+			detail+="<tr><th>party:<\/th><td>"+parent.senators[m].party+"<\/td><\/tr>";
+			detail+="<tr><th>entered:<\/th><td>"+parent.senators[m].entered+"<\/td><\/tr>";
+			detail+="<tr><th>term:<\/th><td>"+parent.senators[m].term+"<\/td><\/tr>";
+			detail+="<\/table>";
+			return detail;
+			}
+		}
+	}
+
+
+function BackConact(s) {
+	if(s.selectedIndex>-1) {
+		s.selectedIndex=((s.selectedIndex>0)?  s.selectedIndex-1 : s.length-1);
+		} else {s.selectedIndex=0;}
+	ShowDetail(s);
+	}
+
+function NextConact(s) {
+	if(s.selectedIndex>-1) {
+		s.selectedIndex=((s.selectedIndex<(s.length-1))?s.selectedIndex+1 : 0);
+		} else {s.selectedIndex=0;}
+	ShowDetail(s);
+	}
+
+</script>
+
+<style type="text/css">
+<!--
+#detail table {font-family:sans-serif;font-size:12px;}
+#detail td.name {font-size:14px;font-weight:bold;}
+#detail th {text-align:right;width:100px;}
+-->
+</style>
+
+<center><a name=top></a>
+<div class="blu">
+<div class="heading2">
+<table align=center class="heading2">
+<tr><td><div class=logoshadow>&lt!-- SophiaKnows --&gt;<a href="http://www.sophiaknows.com/" title="SophiaKnows Main" class=logoforeground>&lt!-- SophiaKnows --&gt;</a></div></td>
+</table>
+</div>
+<div ID=topnav>
+<table border=0 align=center cellspacing=0 cellpadding=0>
+<tr>
+<td><a href=../../index.html>SK MAIN</a></td>
+<td><a href=../../codebase.html>CODEBASE</a></td>
+<td><a href=../codebase.php?language=JS>JAVASCRIPT</a></td>
+</tr>
+</table>
+</div>
+
+</div>
+
+<p align=center><span class=SansBlack18><b>JAVASCRIPT ADDRESSBOOK</b></span>
+<br /><i>Rev 6: December 2004</i>
+
+<center>
+<p>
+<TABLE cellspacing=0 cellpadding=0>
+<TR>
+	<TD align=left BGCOLOR=#336699><img src=../../images/corner-ul.gif></td>
+	<td BGCOLOR=#336699></td>
+	<td align=right BGCOLOR=#336699><img src=../../images/corner-ur.gif></td>
+</TR>
+<TR><TD BGCOLOR=#336699 colspan=3>
+
+<!-- BACKGROUND -->
+<TABLE CLASS=SansBlack12 CELLSPACING="5" CELLPADDING="1">
+<form action="" onsubmit="return false" name="addressbook">
+<TR><TD COLSPAN=2 ALIGN=RIGHT CLASS=SansWhite11>
+Search: <input name="restrictions" size="15" style="width:150px;border:solid 1px #666;" onKeyUp=TypeDown(this.form.contactlist,this)>
+</TR></TD>
+<TR><TD VALIGN=TOP align=center>
+
+   <select name="contactlist" size="15"  style="width:200px;height:230px;font-size:12px;border-style:none;padding:0px;margin:0px;"
+    onchange="ShowDetail(this.form.contactlist)"">
+	<option value="Daniel K. Akaka">Daniel K. Akaka
+	<option value="Lamar A. Alexander">Lamar A. Alexander
+	<option value="A. Wayne Allard">A. Wayne Allard
+	<option value="George F. Allen Jr.">George F. Allen Jr.
+	<option value="Max S. Baucus">Max S. Baucus
+	<option value="B. Evans 'Evan' Bayh III">B. Evans 'Evan' Bayh III
+	<option value="Robert F. Bennett">Robert F. Bennett
+	<option value="Joseph R. Biden Jr.">Joseph R. Biden Jr.
+	<option value="Jesse F. 'Jeff' Bingaman Jr.">Jesse F. 'Jeff' Bingaman Jr.
+	<option value="Christopher S. 'Kit' Bond">Christopher S. 'Kit' Bond
+	<option value="Barbara L. Boxer">Barbara L. Boxer
+	<option value="Samuel D. Brownback">Samuel D. Brownback
+	<option value="James P. D. Bunning">James P. D. Bunning
+	<option value="Conrad R. Burns">Conrad R. Burns
+	<option value="Richard M. Burr">Richard M. Burr
+	<option value="Robert C. Byrd">Robert C. Byrd
+	<option value="Maria E. Cantwell">Maria E. Cantwell
+	<option value="Thomas R. Carper">Thomas R. Carper
+	<option value="Lincoln D. Chafee">Lincoln D. Chafee
+	<option value="C. Saxby Chambliss">C. Saxby Chambliss
+	<option value="Hillary Rodham Clinton">Hillary Rodham Clinton
+	<option value="Thomas A. Coburn">Thomas A. Coburn
+	<option value="W. Thad Cochran">W. Thad Cochran
+	<option value="Norm Coleman">Norm Coleman
+	<option value="Susan M. Collins">Susan M. Collins
+	<option value="Kent Conrad">Kent Conrad
+	<option value="John Cornyn">John Cornyn
+	<option value="Jon S. Corzine">Jon S. Corzine
+	<option value="Larry E. Craig">Larry E. Craig
+	<option value="Michael D. Crapo">Michael D. Crapo
+	<option value="Mark Dayton">Mark Dayton
+	<option value="James W. DeMint">James W. DeMint
+	<option value="Michael DeWine">Michael DeWine
+	<option value="Christopher J. Dodd">Christopher J. Dodd
+	<option value="Elizabeth H. Dole">Elizabeth H. Dole
+	<option value="Peter V. Domenici">Peter V. Domenici
+	<option value="Byron L. Dorgan">Byron L. Dorgan
+	<option value="Richard J. Durbin">Richard J. Durbin
+	<option value="John E. Ensign">John E. Ensign
+	<option value="Michael B. Enzi">Michael B. Enzi
+	<option value="Russell D. Feingold">Russell D. Feingold
+	<option value="Dianne G. B. Feinstein">Dianne G. B. Feinstein
+	<option value="William H. Frist">William H. Frist
+	<option value="Lindsey O. Graham">Lindsey O. Graham
+	<option value="Charles E. Grassley">Charles E. Grassley
+	<option value="Judd A. Gregg">Judd A. Gregg
+	<option value="Charles T. Hagel">Charles T. Hagel
+	<option value="Thomas R. Harkin">Thomas R. Harkin
+	<option value="Orrin G. Hatch">Orrin G. Hatch
+	<option value="Kay Bailey Hutchison">Kay Bailey Hutchison
+	<option value="James M. Inhofe">James M. Inhofe
+	<option value="Daniel K. Inouye">Daniel K. Inouye
+	<option value="Johnny Isakson">Johnny Isakson
+	<option value="James M. Jeffords">James M. Jeffords
+	<option value="Timothy P. Johnson">Timothy P. Johnson
+	<option value="Edward M. Kennedy">Edward M. Kennedy
+	<option value="John F. Kerry">John F. Kerry
+	<option value="Herbert H. Kohl">Herbert H. Kohl
+	<option value="Jon L. Kyl">Jon L. Kyl
+	<option value="Mary L. Landrieu">Mary L. Landrieu
+	<option value="Frank R. Lautenberg">Frank R. Lautenberg
+	<option value="Patrick J. Leahy">Patrick J. Leahy
+	<option value="Carl M. Levin">Carl M. Levin
+	<option value="Joseph I. Lieberman">Joseph I. Lieberman
+	<option value="Blanche L. Lincoln">Blanche L. Lincoln
+	<option value="C. Trent Lott Jr.">C. Trent Lott Jr.
+	<option value="Richard G. Lugar">Richard G. Lugar
+	<option value="Melquiades R. Martinez">Melquiades R. Martinez
+	<option value="John S. McCain III">John S. McCain III
+	<option value="A. Mitchell McConnell Jr.">A. Mitchell McConnell Jr.
+	<option value="Barbara A. Mikulski">Barbara A. Mikulski
+	<option value="Lisa Murkowski">Lisa Murkowski
+	<option value="Patricia Murray">Patricia Murray
+	<option value="C. William Nelson">C. William Nelson
+	<option value="E. Benjamin Nelson">E. Benjamin Nelson
+	<option value="Barack Obama">Barack Obama
+	<option value="Mark Pryor">Mark Pryor
+	<option value="John F. 'Jack' Reed">John F. 'Jack' Reed
+	<option value="Harry M. Reid">Harry M. Reid
+	<option value="C. Patrick Roberts">C. Patrick Roberts
+	<option value="John D. 'Jay' Rockefeller IV">John D. 'Jay' Rockefeller IV
+	<option value="Ken Lee Salazar">Ken Lee Salazar
+	<option value="Richard J. Santorum">Richard J. Santorum
+	<option value="Paul S. Sarbanes">Paul S. Sarbanes
+	<option value="Charles E. Schumer">Charles E. Schumer
+	<option value="Jefferson B. Sessions III">Jefferson B. Sessions III
+	<option value="Richard C. Shelby">Richard C. Shelby
+	<option value="Gordon H. Smith">Gordon H. Smith
+	<option value="Olympia J. Snowe">Olympia J. Snowe
+	<option value="Arlen Specter">Arlen Specter
+	<option value="Deborah A. Stabenow">Deborah A. Stabenow
+	<option value="Theodore F. Stevens">Theodore F. Stevens
+	<option value="John E. Sununu">John E. Sununu
+	<option value="James M. Talent">James M. Talent
+	<option value="Craig L. Thomas">Craig L. Thomas
+	<option value="John R. Thune">John R. Thune
+	<option value="David Vitter">David Vitter
+	<option value="George V. Voinovich">George V. Voinovich
+	<option value="John W. Warner">John W. Warner
+	<option value="Ronald L. Wyden">Ronald L. Wyden
+</select>
+
+</TD><TD>
+<div ID="detail" style="height:226px;width:300px;background:#fff;border-style:solid;border-width:2px;border-color:#999 #fff #fff #999;">
+&nbsp;
+</div>
+</TD>
+<TR>
+	<TD align=center BGCOLOR=#336699>
+	<TABLE><TR>
+		<TD><button class="blubutton" onclick="BackConact(document.forms['addressbook'].contactlist)">&nbsp;&lt;&nbsp;</bottun></TD>
+		<TD>&nbsp;&nbsp;</TD>
+		<TD><button class="blubutton" onclick="NextConact(document.forms['addressbook'].contactlist)">&nbsp;&gt;&nbsp;</bottun></TD>
+	</TR></TABLE>
+	<TD align=left BGCOLOR=#336699>&nbsp;</td>
+</TR>
+
+
+</form>
+
+</TABLE>
+</TD></TR>
+
+<TR>
+	<TD align=left BGCOLOR=#336699><img src=../../images/corner-ll.gif></td>
+	<td BGCOLOR=#336699></td>
+	<td align=right BGCOLOR=#336699><img src=../../images/corner-lr.gif></td>
+</TR>
+
+</TABLE>
+
+<div class=SansBlack12 style=text-align:left;width:80%;>
+<p>
+<div class=codeSample style=text-align:left;width:100%;>
+<pre>
+
+</pre>
+</div>
+
+
+</div>	
 <!--div id="contactform1"-->
 <!--div id="contactform2" ></div-->	<!--div id="contactform2"-->			
-<div id="search-panel" class="panel">
+<!--div id="search-panel" class="panel">
     <h1>Search Contacts</h1>
     <form id="search" action="#">
         <div id="results">
@@ -126,7 +380,7 @@
             </div>
         </form>
     </div>
-<div id = "show-panel" class="panel"><div class="btn btn-circle"><i></div></div>
+<div id = "show-panel" class="panel"><div class="btn btn-circle"><i></div></div-->
 
 </div><!--div id="contactform"-->   
 <!--/div><!--end of contactform-->
