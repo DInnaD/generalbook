@@ -186,13 +186,13 @@ $(document).one('pageinit', function(){
 	// Add A Run
 	 function addRun(){
 		// Get form values
-		var miles = $('#addMiles').val();
-		var date = $('#addDate').val();
+		var miles = $('#addName').val();
+		var date = $('#addPhone').val();
 		
 		// Create 'run' object for passing into HTML5 local storage API
 		var run = {
 			date: date,
-			miles: parseFloat(miles)
+			miles: miles
 		};
 		
 		var runs = getRunsObject();
