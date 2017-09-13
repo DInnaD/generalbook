@@ -65,17 +65,17 @@
 			<h3>iGeneral Book</h3>
 			<form id="addForm">
 				<label for="addName"></label>
-      <input type="text" class="form-field" id="addName" required="required" placeholder="Enter Name" class="signupForm" placeholder="Enter Name" /> 
+      <input type="text" class="form-field" id="addName" required="required" placeholder="Enter Name" class="signupForm form-field" placeholder="Enter Name" /> 
 
       
       <label for="addPhone"></label>
-      <input type="tel" placeholder="+38-1234567890" pattern="^\+38-\d{10}$" required="required" data-role="phone" class="form-field" id="addPhone" placeholder="Enter Phone" class="signupForm" />
+      <input type="tel" placeholder="+38-1234567890" pattern="^\+38-\d{10}$" required="required" data-role="phone" id="addPhone" placeholder="Enter Phone" class="signupForm form-field" />
 
       <label for="addUrl"></label>
-      <input type="text" class="form-field" id="addUrl" placeholder="Enter Url" pattern="^\https://\d{1000}$" required="required" class="signupForm" placeholder="Enter Url"/> 
+      <input type="text" class="form-field" id="addUrl" placeholder="Enter Url" pattern="^\https://\d{1000}$" required="required" class="signupForm form-field" placeholder="Enter Url"/> 
 
       <label for="addInfo"></label>
-      <input type="text" class="form-field" data-role="info"  id="addInfo" placeholder="Enter Info" class="signupForm" placeholder="Enter Info"/>
+      <input type="text" class="form-field" data-role="info"  id="addInfo" placeholder="Enter Info" class="signupForm form-field" placeholder="Enter Info"/>
 				
 				<button id="submitAdd">Submit</button>
 			</form>
@@ -104,16 +104,16 @@
 			<form id="editForm">
 				
 				 <label for="editName"></label>
-     <input type="text" class="form-field" id="editName" required="required" class="signupForm" placeholder="Enter Name" /> 
+     <input type="text" class="form-field" id="editName" required="required" class="signupForm form-field" placeholder="Enter Name" /> 
 
       <label for="editPhone"></label><!--pattern="^\+380-\d{3}-\d{2}-\d{2}$" pattern="^\+38-\d{10}$"-->
-      <input type="tel" placeholder="+38-1234567890" pattern="^\+38-\d{10}$" required="required" data-role="phone" class="form-field" id="editPhone" class="signupForm" />
+      <input type="tel" placeholder="+38-1234567890" pattern="^\+38-\d{10}$" required="required" data-role="phone" class="signupForm form-field" id="editPhone" />
 
        <label for="editUrl"></label>
-      <input type="text" class="form-field" id="editUrl" pattern="^\https://\d{1000}$" required="required" class="signupForm" placeholder="Enter Url" /> 
+      <input type="text" class="form-field" id="editUrl" pattern="^\https://\d{1000}$" required="required" class="signupForm form-field" placeholder="Enter Url" /> 
 
       <label for="editInfo"></label>
-      <input type="text" data-role="info" class="form-field" id="editInfo" class="signupForm" placeholder="Enter Info" />
+      <input type="text" data-role="info" class="form-field" id="editInfo" class="signupForm form-field" placeholder="Enter Info" />
 				<button id="submitEdit" >Update</button>
 			</form>
 			</div>
@@ -185,7 +185,7 @@ $(document).one('pageinit', function(){
 		}
 	 }
 	
-/*
+
 function validateForm() {
 var isValid = true;
 $('.form-field').each(function() {
@@ -194,7 +194,7 @@ isValid = false;
 });
 return isValid;
 }
-*/	
+	
 function validateSignup(name, phone, url, info)
 {   
     $.validator.addMethod(
@@ -264,7 +264,7 @@ function validateSignup(name, phone, url, info)
             phone: 
             {
                 required: "Please enter your phone number",
-                regex: "e.g. +38 000 0000000"    
+                regex: "e.g. +38-0000000000"    
             },
             url: 
             {
@@ -279,7 +279,7 @@ function validateSignup(name, phone, url, info)
 
         },
 
-        submitHandler: function (form)
+        submitHandler: function (submitAdd, submitEdit)
         {
             return true;
         }
@@ -288,16 +288,20 @@ function validateSignup(name, phone, url, info)
 
 	// Add A Run
 	 function addRun(){
-		
+		 let name;
+		 let phone;
+		 let url;
+		 let info;
+	validateForm();
+		 validateSignup(name, phone, url, info);
 		// Get form values
-		var name = $('#addName').val();
-		var phone = $('#addPhone').val();
-		 let url = $('#addUrl').val();
-    		let info = $('#addInfo').val();
+		 name = $('#addName').val();
+		phone = $('#addPhone').val();
+		 url = $('#addUrl').val();
+    		info = $('#addInfo').val();
 		// Create 'run' object for passing into HTML5 local storage API
 		
-	  validateSignup();
-		// validateForm();
+	
 		 var run = {
 			name: name,
         phone: phone,
