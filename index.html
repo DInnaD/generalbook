@@ -171,8 +171,8 @@ $(document).one('pageinit', function(){
 		// Check if empty
 		if(runs != '' && runs != null){
 			for(var i = 0;i < runs.length;i++){
-				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong>Date:</strong>'+runs[i]["date"]+
-				' <br><strong>Distance: </strong>'+runs[i]["miles"]+' miles<div class="controls">' +
+				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+runs[i]["name"]+
+				' <br><strong></strong>'+runs[i]["phone"]+' <div class="controls">' +
 				'<a href="#edit" id="editLink" data-miles="'+runs[i]["miles"]+'" data-date="'+runs[i]["date"]+'">Edit</a> | <a href="#" id="deleteLink" data-miles="'+runs[i]["miles"]+'" data-date="'+runs[i]["date"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}
 			$('#home').bind('pageinit', function(){
@@ -186,13 +186,13 @@ $(document).one('pageinit', function(){
 	// Add A Run
 	 function addRun(){
 		// Get form values
-		var miles = $('#addName').val();
-		var date = $('#addPhone').val();
+		var name = $('#addName').val();
+		var phone = $('#addPhone').val();
 		
 		// Create 'run' object for passing into HTML5 local storage API
 		var run = {
-			date: date,
-			miles: miles
+			name: name,
+			phone: phone
 		};
 		
 		var runs = getRunsObject();
@@ -230,8 +230,8 @@ $(document).one('pageinit', function(){
 		}
 		
 		// Get form values
-		var miles = $('#editMiles').val();
-		var date = $('#editDate').val();
+		var miles = $('#editName').val();
+		var date = $('#editPhone').val();
 		
 		// Create 'run' object
 		var update_run = {
