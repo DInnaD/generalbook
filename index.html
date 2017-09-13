@@ -296,15 +296,15 @@ function validateSignup(name, phone, url, info)
     		let info = $('#addInfo').val();
 		// Create 'run' object for passing into HTML5 local storage API
 		
-	  
+	  validateSignup();
+		// validateForm();
 		 var run = {
 			name: name,
         phone: phone,
         url: url,
         info: info
 		};
-	validateSignup();
-		// validateForm();	
+		
 		 
 		var runs = getRunsObject();
 		
