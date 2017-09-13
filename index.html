@@ -69,7 +69,7 @@
 
       
       <label for="addPhone"></label>
-      <input type="tel" placeholder="+380-000-00-00" pattern="^\+380-\d{3}-\d{2}-\d{2}$" required="required" data-role="phone" class="form-field" id="addPhone" placeholder="Enter Phone" class="signupForm" />
+      <input type="tel" placeholder="+38 000 0000000" pattern="^\+380-\d{3}-\d{2}-\d{2}$" required="required" data-role="phone" class="form-field" id="addPhone" placeholder="Enter Phone" class="signupForm" />
 
       <label for="addUrl"></label>
       <input type="text" class="form-field" id="addUrl" placeholder="Enter Url" class="signupForm" /> 
@@ -107,7 +107,7 @@
      <input type="text" class="form-field" id="editName" class="signupForm" /> 
 
       <label for="editPhone"></label>
-      <input type="tel" placeholder="+380-000-00-00" pattern="^\+380-\d{3}-\d{2}-\d{2}$" required="required" data-role="phone" class="form-field" id="editPhone" class="signupForm" />
+      <input type="tel" placeholder="+38 000 0000000" pattern="^\+380-\d{3}-\d{2}-\d{2}$" required="required" data-role="phone" class="form-field" id="editPhone" class="signupForm" />
 
        <label for="editUrl"></label>
       <input type="text" class="form-field" id="editUrl" class="signupForm" /> 
@@ -214,7 +214,7 @@ $(document).one('pageinit', function(){
             name:
             {
                 required: true,
-                name: true,
+                //name: true,
                 regex: /^[a-zA-Z]+$/,
             },
 
@@ -228,13 +228,13 @@ $(document).one('pageinit', function(){
             url:
             {
                 required: true,
-                url: true,
+                //url: true,
                 regex: /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi,
             },
             info:
             {
                 required: true,
-                info: true,
+                //info: true,
                 regex: /^[a-zA-Z]+$/,
             },
 
@@ -253,7 +253,7 @@ $(document).one('pageinit', function(){
             phone: 
             {
                 required: "Please enter your phone number",
-                regex: "e.g. +91-1234567890"    
+                regex: "e.g. +38 000 0000000"    
             },
             url: 
             {
