@@ -173,7 +173,9 @@ $(document).one('pageinit', function(){
 			for(var i = 0;i < runs.length;i++){
 				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+runs[i]["name"]+
 				' <br><strong></strong>'+runs[i]["phone"]+' <div class="controls">' +
-				'<a href="#edit" id="editLink" data-miles="'+runs[i]["miles"]+'" data-date="'+runs[i]["date"]+'">Edit</a> | <a href="#" id="deleteLink" data-miles="'+runs[i]["miles"]+'" data-date="'+runs[i]["date"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
+				' <br><strong></strong>'+runs[i]["url"]+' <div class="controls">' +
+				' <br><strong></strong>'+runs[i]["info"]+' <div class="controls">' +
+				'<a target="_blank" href="data-info="'+ runs[i]["url"]+'"">Visit</a> | <a href="#edit" id="editLink" data-miles="'+runs[i]["miles"]+'" data-date="'+runs[i]["date"]+'">Edit</a> | <a href="#" id="deleteLink" data-miles="'+runs[i]["miles"]+'" data-date="'+runs[i]["date"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}
 			$('#home').bind('pageinit', function(){
 				$('#stats').listview('refresh');
@@ -188,13 +190,28 @@ $(document).one('pageinit', function(){
 		// Get form values
 		var name = $('#addName').val();
 		var phone = $('#addPhone').val();
-		
+		 let url = $('#addUrl').val();
+    		let info = $('#addInfo').val();
 		// Create 'run' object for passing into HTML5 local storage API
 		var run = {
 			name: name,
-			phone: phone
+        phone: phone,
+        url: url,
+        info: info
 		};
-		
+		 /*
+		let name = $('#addName').val();
+    let phone = $('#addPhone').val();
+    let url = $('#addUrl').val();
+    let info = $('#addInfo').val();
+    //create contact boject
+    let contact = {
+        
+        name: name,
+        phone: phone,
+        url: url,
+        info: info
+    }*/
 		var runs = getRunsObject();
 		
 		// Add run to runs array
