@@ -184,7 +184,17 @@ $(document).one('pageinit', function(){
 			$('#stats').html('<p>You have no logged runs</p>');
 		}
 	 }
-	  function validateSignup(name, phone, url, info)
+	
+
+function validateForm() {
+var isValid = true;
+$('.form-field').each(function() {
+if ( $(this).val() === '' )
+isValid = false;
+});
+return isValid;
+}	
+function validateSignup(name, phone, url, info)
 {   
     $.validator.addMethod(
             "regex",
@@ -285,27 +295,16 @@ $(document).one('pageinit', function(){
     		let info = $('#addInfo').val();
 		// Create 'run' object for passing into HTML5 local storage API
 		
-		  validateSignup();
-		 
+		validateSignup();
+		 validateForm();  
 		 var run = {
 			name: name,
         phone: phone,
         url: url,
         info: info
 		};
-		 /*
-		let name = $('#addName').val();
-    let phone = $('#addPhone').val();
-    let url = $('#addUrl').val();
-    let info = $('#addInfo').val();
-    //create contact boject
-    let contact = {
-        
-        name: name,
-        phone: phone,
-        url: url,
-        info: info
-    }*/
+	
+		 
 		var runs = getRunsObject();
 		
 		// Add run to runs array
