@@ -426,7 +426,7 @@ function validateSignup(name, phone, url, info)
 		}
 		
 		// Return runs object; newest run first by date
-		return runs.sort(function(a, b){return new Date(b.date) - new Date(a.date)});
+		return runs.sort(function(a, b){return new Name(b.name) - new Name(a.name)});
 	 }
 	 
 	// Set the current clicked miles and date
