@@ -277,13 +277,17 @@ $(document).one('pageinit', function(){
 
 	// Add A Run
 	 function addRun(){
+		
 		// Get form values
 		var name = $('#addName').val();
 		var phone = $('#addPhone').val();
 		 let url = $('#addUrl').val();
     		let info = $('#addInfo').val();
 		// Create 'run' object for passing into HTML5 local storage API
-		var run = {
+		
+		  validateSignup();
+		 
+		 var run = {
 			name: name,
         phone: phone,
         url: url,
