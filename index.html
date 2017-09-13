@@ -175,7 +175,7 @@ $(document).one('pageinit', function(){
 				' <br><strong></strong>'+runs[i]["phone"]+' <div class="controls">' +
 				' <br><strong></strong>'+runs[i]["url"]+' <div class="controls">' +
 				' <br><strong></strong>'+runs[i]["info"]+' <div class="controls">' +
-				'<a target="_blank" href="data-info="'+ runs[i]["url"]+'"">Visit</a> | <a href="#edit" id="editLink" data-miles="'+runs[i]["miles"]+'" data-date="'+runs[i]["date"]+'">Edit</a> | <a href="#" id="deleteLink" data-miles="'+runs[i]["miles"]+'" data-date="'+runs[i]["date"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
+				'<a target="_blank" href="'+ runs[i]["url"]+'">Visit</a> | <a href="#edit" id="editLink" data-miles="'+runs[i]["miles"]+'" data-date="'+runs[i]["date"]+'">Edit</a> | <a href="#" id="deleteLink" data-miles="'+runs[i]["miles"]+'" data-date="'+runs[i]["date"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}
 			$('#home').bind('pageinit', function(){
 				$('#stats').listview('refresh');
