@@ -13,13 +13,13 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script src="js/script.js"></script>
-		<script>
+		<!--script>
 			$(function(){
 				$('.date').each(function(){
 					$(this).datepicker();
 				});
 			});
-		</script>
+		</script-->
 	</head>
 	<body>
 		<!-- #home Page -->
@@ -226,7 +226,7 @@ $(document).one('pageinit', function(){
 		// Create 'run' object
 		var update_run = {
 			date: date,
-			miles: parseFloat(miles)
+			miles: miles
 		};
 		
 		// Add run to runs array
