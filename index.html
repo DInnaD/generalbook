@@ -66,18 +66,18 @@
 			<h3>iGeneral Book</h3>
 			<form id="addForm">
 				<label for="addName"></label>
-      <input type="text" class="form-field" id="addName" required="required" placeholder="Enter Name" class="signupForm form-field" placeholder="Enter Name" /> 
-
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" class="form-field" id="addName" required="required" placeholder="Enter Name" class="signupForm form-field" placeholder="Enter Name" /> 
+</div>
       
       <label for="addPhone"></label>
-      <input type="tel" placeholder="+38-1234567890" pattern="^\+38-\d{10}$" required="required" data-role="phone" id="addPhone" placeholder="Enter Phone" class="signupForm form-field" />
-
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="tel" placeholder="+38-1234567890" pattern="^\+38-\d{10}$" required="required" data-role="phone" id="addPhone" placeholder="Enter Phone" class="signupForm form-field" />
+</div>
       <label for="addUrl"></label>
-      <input type="text" class="form-field" id="addUrl" placeholder="Enter Url" pattern="^\https://\d{1000}$" required="required" class="signupForm form-field" placeholder="Enter Url"/> 
-
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" class="form-field" id="addUrl" placeholder="Enter Url" pattern="^\https://\d{1000}$" required="required" class="signupForm form-field" placeholder="Enter Url"/> 
+</div>
       <label for="addInfo"></label>
-      <input type="text" class="form-field" data-role="info"  id="addInfo" placeholder="Enter Info" class="signupForm form-field" placeholder="Enter Info"/>
-				
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" class="form-field" data-role="info"  id="addInfo" placeholder="Enter Info" class="signupForm form-field" placeholder="Enter Info"/>
+</div>				
 				<button id="submitAdd">Submit</button>
 			</form>
 			</div>
@@ -105,17 +105,18 @@
 			<form id="editForm">
 				
 				 <label for="editName"></label>
-     <input type="text" class="form-field" id="editName" required="required" class="signupForm form-field" placeholder="Enter Name" /> 
-
+     <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" class="form-field" id="editName" required="required" class="signupForm form-field" placeholder="Enter Name" /> 
+</div>
       <label for="editPhone"></label><!--pattern="^\+380-\d{3}-\d{2}-\d{2}$" pattern="^\+38-\d{10}$" pattern="^\https://\d{1000}$"-->
-      <input type="tel" placeholder="+38-1234567890" pattern="^\+38-\d{10}$" required="required" data-role="phone" class="signupForm form-field" id="editPhone" />
-
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="tel" placeholder="+38-1234567890" pattern="^\+38-\d{10}$" required="required" data-role="phone" class="signupForm form-field" id="editPhone" />
+</div>
        <label for="editUrl"></label>
-      <input type="text" class="form-field" id="editUrl"  required="required" class="signupForm form-field" placeholder="Enter Url" /> 
-
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" class="form-field" id="editUrl"  required="required" class="signupForm form-field" placeholder="Enter Url" /> 
+</div>
       <label for="editInfo"></label>
-      <input type="text" data-role="info" class="form-field" id="editInfo" class="signupForm form-field" placeholder="Enter Info" />
-				<button id="submitEdit" >Update</button>
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" data-role="info" class="form-field" id="editInfo" class="signupForm form-field" placeholder="Enter Info" />
+</div>
+	<button id="submitEdit" >Update</button>
 			</form>
 			</div>
 		
@@ -419,7 +420,7 @@ try{
 		
 		
 		  }else{
-	 alert('Please, full form!');
+	 alert('Please, enter Name!');
 	 }
 		 return false;
 	 }
