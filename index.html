@@ -411,7 +411,7 @@ function validateSignup(name, phone, url, info)
 		}
 		
 		// Return contacts object; newest contact first by date
-		return contacts.sort(function(a, b){return new Date(b.data) - new Date(a.data)});
+		return contacts.sort(function(a, b){return new Date(b.date) - new Date(a.date)});
 	 }
 	 
 	// Set the current clicked 
