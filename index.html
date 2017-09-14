@@ -242,7 +242,7 @@ $(document).one('pageinit', function(){
 				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="#homeMore" id="moreLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">More</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}
 			$('#home').bind('pageinit', function(){
-				$('#stats').listviewMore('refresh');
+				$('#stats').listview('refresh');
 			});
 		} else {
 			$('#stats').html('<p>You have no logged contacts</p>');
@@ -284,9 +284,9 @@ $(document).one('pageinit', function(){
 				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
 				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="index.html" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}*/
-			$('#home').bind('pageinit', function(){
+			$('#homeMore').bind('pageinit', function(){
 				
-				$('#stats').listview('refresh');
+				$('#statsMore').listviewMore('refresh');
 			})
 			}
 			
