@@ -237,7 +237,7 @@ $(document).one('pageinit', function(){
 		var contacts = getContactsObject();
 		
 		// Check if empty
-		if(contacts != '' && contacts != null){
+		if((contacts != '' && contacts != null) && contacts != undefined){
 			for(var i = 0;i < contacts.length;i++){
 				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+contacts[i]["name"]+
 				' <br><strong></strong>'+contacts[i]["phone"]+' <div class="controls">' +
@@ -266,7 +266,7 @@ $(document).one('pageinit', function(){
       currentUrl = localStorage.getItem('currentUrl');
       currentInfo = localStorage.getItem('currentInfo');
 		var contacts = getContactsObject();
-		if(){
+		if((contacts != '' && contacts != null) && contacts != undefined){
 		// Loop through contacts
 		for(var i = 0;i < contacts.length;i++){
 			if((contacts[i].name == currentName && contacts[i].phone == currentPhone) && (contacts[i].url == currentUrl && contacts[i].info == currentInfo)){
@@ -275,7 +275,7 @@ $(document).one('pageinit', function(){
 				' <br><strong></strong>'+contacts[i]["url"]+
 				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
 				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="#home" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
-			}
+			}//if
 			/*/ Loop through contacts
 		for(var i = 0;i < contacts.length;i++){
 			if((contacts[i].name == currentName && contacts[i].phone == currentPhone) && (contacts[i].url == currentUrl && contacts[i].info == currentInfo)){
@@ -285,25 +285,25 @@ $(document).one('pageinit', function(){
 				' <br><strong></strong>'+contacts[i]["url"]+
 				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
 				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
-			*/}
+			*/}//for
 			$('#home').bind('pageinit', function(){
 				
 				$('#stats').listview('refresh');
-			});
-			}
+			});//func
+			}//if null
 			
-		} 
+		} //fmain
 		function showContactsRefresh {
-		$('#home').bind('pageinit', function(){
+		//$('#home').bind('pageinit', function(){
 				
-				$('#stats').listview('refresh');
-			});
-			showContacts();
+				//$('#stats').listview('refresh');
+			//});
+			//showContacts();
 			
 
 
 			//redirect
-			//window.location.href =  'index.html';
+		window.location.href =  'index.html';
 
 			
 
