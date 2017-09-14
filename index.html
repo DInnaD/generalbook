@@ -44,7 +44,7 @@
 				<button id="clearContacts" onclick="return confirm('Are You Sure?')" data-theme="b">Clear Total Mileage</button>
 			</div>
 		
-			<footer data-role="footer" data-theme="b">
+			<footer id="footer" data-role="footer" data-theme="b">
 				<h4>iGeneral Book 2017</h4>
 			</footer>
 		</div>
@@ -271,10 +271,11 @@ $(document).one('pageinit', function(){
 		for(var i = 0;i < contacts.length;i++){
 			if((contacts[i].name == currentName && contacts[i].phone == currentPhone) && (contacts[i].url == currentUrl && contacts[i].info == currentInfo)){
 				
-				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+
+				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+contacts[i]["name"]+
+				' <br><strong></strong>'+contacts[i]["phone"]+
 				' <br><strong></strong>'+contacts[i]["url"]+
 				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
-				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="#home" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
+				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}//if
 			/*/ Loop through contacts
 		for(var i = 0;i < contacts.length;i++){
@@ -289,11 +290,13 @@ $(document).one('pageinit', function(){
 			$('#home').bind('pageinit', function(){
 				
 				$('#stats').listview('refresh');
+			$('#footer').scroll()	
 			});//func
 			}//if null
 			
-		} //fmain
+		} //fmain //scrolldown
 		function showContactsRefresh() {
+			window.location.reload();
 		//$('#home').bind('pageinit', function(){
 				
 				//$('#stats').listview('refresh');
@@ -303,7 +306,7 @@ $(document).one('pageinit', function(){
 
 
 			//redirect
-		window.location.href =  'index.html';
+		//window.location.href =  'index.html';
 
 			
 
