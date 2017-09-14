@@ -217,7 +217,24 @@ $(document).one('pageinit', function(){
 	$('#stats').on('tap','#moreLink', moreContact);
 	
 	
-	$('#backLink').on('tap', '#home', showContacts);
+	$('#backLink').on('tap', showContactsRefresh function(event) {
+	  	//event.preventDefault();
+		$('#home').bind('pageinit', function(){
+				
+				$('#stats').listview('refresh');
+			})
+			showContacts();
+			
+
+
+			//redirect
+			//window.location.href =  'index.html';
+
+			return false;
+
+	  });
+
+	
 	
 	// Set Current Stats Handler
 	$('#stats').on('tap','#editLink', setCurrent);
@@ -280,7 +297,7 @@ $(document).one('pageinit', function(){
 				' <br><strong></strong>'+contacts[i]["phone"]+
 				' <br><strong></strong>'+contacts[i]["url"]+
 				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
-				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="index.html" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
+				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}*/
 			$('#home').bind('pageinit', function(){
 				
