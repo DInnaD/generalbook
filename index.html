@@ -107,11 +107,11 @@
 				 <label for="editName"></label>
      <input type="text" class="form-field" id="editName" required="required" class="signupForm form-field" placeholder="Enter Name" /> 
 
-      <label for="editPhone"></label><!--pattern="^\+380-\d{3}-\d{2}-\d{2}$" pattern="^\+38-\d{10}$"-->
+      <label for="editPhone"></label><!--pattern="^\+380-\d{3}-\d{2}-\d{2}$" pattern="^\+38-\d{10}$" pattern="^\https://\d{1000}$"-->
       <input type="tel" placeholder="+38-1234567890" pattern="^\+38-\d{10}$" required="required" data-role="phone" class="signupForm form-field" id="editPhone" />
 
        <label for="editUrl"></label>
-      <input type="text" class="form-field" id="editUrl" pattern="^\https://\d{1000}$" required="required" class="signupForm form-field" placeholder="Enter Url" /> 
+      <input type="text" class="form-field" id="editUrl"  required="required" class="signupForm form-field" placeholder="Enter Url" /> 
 
       <label for="editInfo"></label>
       <input type="text" data-role="info" class="form-field" id="editInfo" class="signupForm form-field" placeholder="Enter Info" />
@@ -123,7 +123,7 @@
 				<h4>iGeneral Book 2017</h4>
 			</footer>
 		</div>
-	<!-- MORE PAGE 
+	<!-- MORE PAGE >
 		<div data-role="page" id="more">
 			<header data-role="header" data-theme="b">
 				<h1>iGeneral Book</h1>
@@ -158,8 +158,8 @@
 			<footer data-role="footer" data-theme="b">
 				<h4>iGeneral Book 2017</h4>
 			</footer>
-		</div>	-->
-		<!-- #home Page -->
+		</div>	
+		<!-- #home Page >
 		<div data-role="page" id="homeMore">
 			<header data-role="header" data-theme="b">
 				<h1>iGeneral Book</h1>
@@ -182,7 +182,7 @@
 			<footer data-role="footer" data-theme="b">
 				<h4>iGeneral Book 2017</h4>
 			</footer>
-		</div>
+		</div-->
 	<style type="text/css">
 		
 		body{
@@ -214,11 +214,10 @@ $(document).one('pageinit', function(){
 	// Delete Stats Handler
 	$('#stats').on('tap','#deleteLink', deleteContact);
 	
-	$('#statsMore').on('tap','#moreLink', moreContact);
-	// Delete Stats Handler
-	$('#statsMore').on('tap','#deleteLink', deleteContact);
+	$('#stats').on('tap','#moreLink', moreContact);
 	
-	$('#backLink').on('tap', showContacts);
+	
+	$('#backLink').on('tap', '#home', showContacts);
 	
 	// Set Current Stats Handler
 	$('#stats').on('tap','#editLink', setCurrent);
@@ -268,8 +267,7 @@ $(document).one('pageinit', function(){
 		for(var i = 0;i < contacts.length;i++){
 			if((contacts[i].name == currentName && contacts[i].phone == currentPhone) && (contacts[i].url == currentUrl && contacts[i].info == currentInfo)){
 				
-				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+contacts[i]["name"]+
-				' <br><strong></strong>'+contacts[i]["phone"]+
+				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+
 				' <br><strong></strong>'+contacts[i]["url"]+
 				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
 				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="#home" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
@@ -284,9 +282,9 @@ $(document).one('pageinit', function(){
 				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
 				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="index.html" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}*/
-			$('#homeMore').bind('pageinit', function(){
+			$('#home').bind('pageinit', function(){
 				
-				$('#statsMore').listviewMore('refresh');
+				$('#stats').listview('refresh');
 			})
 			}
 			
