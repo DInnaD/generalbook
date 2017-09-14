@@ -217,11 +217,6 @@ $(document).one('pageinit', function(){
 	$('#stats').on('tap','#moreLink', moreContact);
 	
 	
-	$('#backLink').on('tap', showContactsRefresh); 
-	  	
-
-	
-	
 	// Set Current Stats Handler
 	$('#stats').on('tap','#editLink', setCurrent);
 	
@@ -275,12 +270,9 @@ $(document).one('pageinit', function(){
 				' <br><strong></strong>'+contacts[i]["phone"]+
 				' <br><strong></strong>'+contacts[i]["url"]+
 				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
-				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
+				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a target="_self" href="index.html" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}//if
-			/*/ Loop through contacts
-		for(var i = 0;i < contacts.length;i++){
-			if((contacts[i].name == currentName && contacts[i].phone == currentPhone) && (contacts[i].url == currentUrl && contacts[i].info == currentInfo)){
-				
+			/*/	
 				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+contacts[i]["name"]+
 				' <br><strong></strong>'+contacts[i]["phone"]+
 				' <br><strong></strong>'+contacts[i]["url"]+
@@ -290,27 +282,12 @@ $(document).one('pageinit', function(){
 			$('#home').bind('pageinit', function(){
 				
 				$('#stats').listview('refresh');
-			$('#footer').scroll()	
+			//$('#footer').scroll()	//***************************smotri idress4 scrol
 			});//func
 			}//if null
 			
 		} //fmain //scrolldown
-		function showContactsRefresh() {
-			window.location.reload();
-		//$('#home').bind('pageinit', function(){
-				
-				//$('#stats').listview('refresh');
-			//});
-			//showContacts();
-			
-
-
-			//redirect
-		//window.location.href =  'index.html';
-
-			
-
-	} 
+	
 /*
 function validateForm() {
 var isValid = true;
