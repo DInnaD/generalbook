@@ -239,14 +239,8 @@ $(document).one('pageinit', function(){
 				' <br><strong></strong>'+contacts[i]["url"]+
 				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
 				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a target="_self" href="index.html" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
-			}//if
-			/*/	
-				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+contacts[i]["name"]+
-				' <br><strong></strong>'+contacts[i]["phone"]+
-				' <br><strong></strong>'+contacts[i]["url"]+
-				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
-				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
-			*/}//for
+				}//if
+			}//for
 			$('#home').bind('pageinit', function(){
 				$('#stats').listview('refresh');
 			
@@ -256,16 +250,7 @@ $(document).one('pageinit', function(){
   $("html, body").animate({ scrollTop: $(document).height() }, "slow");
   return false;
 });
-			/*$('#home').bind('pageinit', function(){
-				 $("html, body").animate({ scrollTop: $(document).height() }, "slow");
-				$('#stats').listview('refresh');
-			
-			});//func
-			
-			$("#moreLink").click(function() {
-  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
-
-});*/
+		
 			}//if null
 			
 		} //fmain //scrolldown
@@ -359,8 +344,36 @@ function validateSignup(name, phone, url, info)
     });
 }
 */
+	/*
+	function generateId(){
+	
+console.log(contact);
+try{
+   if(localStorage[contacts].length === 0){ return 1;
+		}else{
+ let contact_int = localStorage.length + 1;
+    contact.id = contact_int;
+    //console.log(contact.id);
+ let itemExists = document.getElementById(contact.id);
+    if(itemExists !== null) {
+      itemExists.remove();
+      }
+    	    } catch (e) {
+  if (e !==  contact.id) {
+  alert('Error data');
+ }
+ }
+ */
 	// Add A contact
 	 function addContact(){
+		 //let contact = {
+    //name: [],
+    //phone: [],
+    //url: [],
+    //info: [],
+    //id: []
+//}
+//generateId();
 		 let name;
 		 let phone;
 		 let url;
@@ -372,10 +385,12 @@ function validateSignup(name, phone, url, info)
 		phone = $('#addPhone').val();
 		 url = $('#addUrl').val();
     		info = $('#addInfo').val();
+		//let id = contact.id;
 		// Create 'contact' object for passing into HTML5 local storage API
 	//validateForm();
 	//validateSignup(name, phone, url, info);
 		 var contact = {
+			 //id: id;
 			name: name,
         phone: phone,
         url: url,
