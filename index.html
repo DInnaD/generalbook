@@ -374,6 +374,7 @@ try{
     //id: []
 //}
 //generateId();
+		 if((contact != '' && contact != null) && contact != undefined){
 		 let name;
 		 let phone;
 		 let url;
@@ -459,11 +460,16 @@ try{
 		window.location.href="index.html";
 		
 		return false;
+	 }else{
+	 alert('Please, full form!');
+	 }
 	 }
 	 
 	 function clearContacts(){
 		localStorage.removeItem('contacts');
 		$('#stats').html('<p>You have no logged Contacts</p>');
+		 
+		 
 	 }
 	 
 	 
