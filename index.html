@@ -155,6 +155,7 @@ $(document).one('pageinit', function(){
 	
 	// Set Current Stats Handler
 	$('#stats').on('tap','#editLink', setCurrent);
+	$('#stats').on('tap','#moreLink', setCurrent);
 	
 	// Clear Handler
 	$('#clearContacts').on('tap', clearContacts);
@@ -180,7 +181,37 @@ $(document).one('pageinit', function(){
 		}
 	 }
 
-	 
+	 	// More A contact
+	 function moreContact(){
+	 		// Set stringified object to localStorage
+		 // Store data in localstorage 
+     // localStorage.setItem('currentPhone', $(this).data('phone'));
+      //localStorage.setItem('currentName', $(this).data('name'));
+      //localStorage.setItem('currentUrl', $(this).data('url'));
+      //localStorage.setItem('currentInfo', $(this).data('info'));
+		//get current values
+      currentPhone = localStorage.getItem('currentPhone');
+      currentName = localStorage.getItem('currentName');
+      currentUrl = localStorage.getItem('currentUrl');
+      currentInfo = localStorage.getItem('currentInfo');
+		var contacts = getContactsObject();
+		
+		// Loop through contacts
+		for(var i = 0;i < contacts.length;i++){
+			if((contacts[i].name == currentName && contacts[i].phone == currentPhone) && (contacts[i].url == currentUrl && contacts[i].info == currentInfo)){
+				
+				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+contacts[i]["name"]+
+				' <br><strong></strong>'+contacts[i]["phone"]+
+				' <br><strong></strong>'+contacts[i]["url"]+
+				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
+				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="index.html" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
+			}
+			$('#home').bind('pageinit', function(){
+				$('#stats').listview('refresh');
+			})
+			}
+			
+		} 
 /*
 function validateForm() {
 var isValid = true;
