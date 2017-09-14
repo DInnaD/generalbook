@@ -198,7 +198,7 @@ $(document).one('pageinit', function(){
 			for(var i = 0;i < contacts.length;i++){
 				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+contacts[i]["name"]+
 				' <br><strong></strong>'+contacts[i]["phone"]+' <div class="controls">' +
-				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="" id="moreLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">More</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
+				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="#home" id="moreLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">More</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}
 			$('#home').bind('pageinit', function(){
 				$('#stats').listview('refresh');
@@ -207,7 +207,13 @@ $(document).one('pageinit', function(){
 			$('#stats').html('<p>You have no logged contacts</p>');
 		}
 	 }
-
+	/*function scrollMore(){
+		$("a[href='#home']").click(function() {
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+  return false;
+});
+	
+}*/
 	
 	// More A contact
 	 function moreContact(){
@@ -242,14 +248,24 @@ $(document).one('pageinit', function(){
 				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			*/}//for
 			$('#home').bind('pageinit', function(){
-				
 				$('#stats').listview('refresh');
 			
 			});//func
+			//scrollMore();
+			$("a[href='#home']").click(function() {
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+  return false;
+});
+			/*$('#home').bind('pageinit', function(){
+				 $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+				$('#stats').listview('refresh');
+			
+			});//func
+			
 			$("#moreLink").click(function() {
   $("html, body").animate({ scrollTop: $(document).height() }, "slow");
 
-});
+});*/
 			}//if null
 			
 		} //fmain //scrolldown
