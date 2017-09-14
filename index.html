@@ -175,7 +175,7 @@
 			<div data-role="content">
 				
 				
-				<ul id="stats" data-role="listviewMore" data-filter="true" data-filter-placeholder="Filter runs by date or distance" data-inset="true"></ul>
+				<ul id="statsMore" data-role="listviewMore" data-filter="true" data-filter-placeholder="Filter runs by date or distance" data-inset="true"></ul>
 				<br>
 			</div>
 		
@@ -208,12 +208,17 @@ $(document).one('pageinit', function(){
 	
 	// Edit Stats Handler
 	$('#submitEdit').on('tap', editContact);
-	// Edit Stats Handler
-	$('#backLink').on('tap', showContacts);
-	//$('#showContactSwich').on('tap', swich);//????????????if #click moreLink else showCons 
-	$('#stats').on('tap','#moreLink', moreContact);//del
+	
+	
+	
 	// Delete Stats Handler
 	$('#stats').on('tap','#deleteLink', deleteContact);
+	
+	$('#statsMore').on('tap','#moreLink', moreContact);
+	// Delete Stats Handler
+	$('#statsMore').on('tap','#deleteLink', deleteContact);
+	
+	$('#backLink').on('tap', showContacts);
 	
 	// Set Current Stats Handler
 	$('#stats').on('tap','#editLink', setCurrent);
