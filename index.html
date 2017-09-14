@@ -244,8 +244,12 @@ $(document).one('pageinit', function(){
 			$('#home').bind('pageinit', function(){
 				
 				$('#stats').listview('refresh');
-			$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+			
 			});//func
+			$("#moreLink").click(function() {
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+
+});
 			}//if null
 			
 		} //fmain //scrolldown
