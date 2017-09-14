@@ -175,7 +175,7 @@
 			<div data-role="content">
 				
 				
-				<ul id="stats" data-role="listview" data-filter="true" data-filter-placeholder="Filter runs by date or distance" data-inset="true"></ul>
+				<ul id="stats" data-role="listviewMore" data-filter="true" data-filter-placeholder="Filter runs by date or distance" data-inset="true"></ul>
 				<br>
 			</div>
 		
@@ -209,7 +209,7 @@ $(document).one('pageinit', function(){
 	// Edit Stats Handler
 	$('#submitEdit').on('tap', editContact);
 	// Edit Stats Handler
-	//$('#backLink').on('tap', showContacts);
+	$('#backLink').on('tap', showContacts);
 	//$('#showContactSwich').on('tap', swich);//????????????if #click moreLink else showCons 
 	$('#stats').on('tap','#moreLink', moreContact);//del
 	// Delete Stats Handler
@@ -237,7 +237,7 @@ $(document).one('pageinit', function(){
 				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="#homeMore" id="moreLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">More</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}
 			$('#home').bind('pageinit', function(){
-				$('#stats').listview('refresh');
+				$('#stats').listviewMore('refresh');
 			});
 		} else {
 			$('#stats').html('<p>You have no logged contacts</p>');
@@ -267,7 +267,7 @@ $(document).one('pageinit', function(){
 				' <br><strong></strong>'+contacts[i]["phone"]+
 				' <br><strong></strong>'+contacts[i]["url"]+
 				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
-				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="index.html" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
+				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="#home" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
 			}
 			/*/ Loop through contacts
 		for(var i = 0;i < contacts.length;i++){
