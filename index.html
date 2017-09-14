@@ -374,7 +374,7 @@ try{
     //id: []
 //}
 //generateId();
-	if((contact != '' && contact != null) && contact != undefined){
+	
 		 let name;
 		 let phone;
 		 let url;
@@ -387,9 +387,13 @@ try{
 		 url = $('#addUrl').val();
     		info = $('#addInfo').val();
 		//let id = contact.id;
+		if((name != '' && name != null) && name != undefined){	 
+		 
 		// Create 'contact' object for passing into HTML5 local storage API
-	//validateForm();
-	//validateSignup(name, phone, url, info);
+		//validateForm();
+		//validateSignup(name, phone, url, info);
+		 
+		 
 		 var contact = {
 			 //id: id;
 			name: name,
@@ -397,7 +401,7 @@ try{
         url: url,
         info: info
 		};
-		
+	
 		 
 		var contacts = getContactsObject();
 		
