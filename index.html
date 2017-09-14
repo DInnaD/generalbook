@@ -217,22 +217,8 @@ $(document).one('pageinit', function(){
 	$('#stats').on('tap','#moreLink', moreContact);
 	
 	
-	$('#backLink').on('tap', showContactsRefresh function(event) {
-	  	//event.preventDefault();
-		$('#home').bind('pageinit', function(){
-				
-				$('#stats').listview('refresh');
-			})
-			showContacts();
-			
-
-
-			//redirect
-			//window.location.href =  'index.html';
-
-			return false;
-
-	  });
+	$('#backLink').on('tap', showContactsRefresh); 
+	  	
 
 	
 	
@@ -265,7 +251,22 @@ $(document).one('pageinit', function(){
 		}
 	 }
 
-	 	// More A contact
+	function showContactsRefresh {
+		$('#home').bind('pageinit', function(){
+				
+				$('#stats').listview('refresh');
+			})
+			showContacts();
+			
+
+
+			//redirect
+			//window.location.href =  'index.html';
+
+			return false;
+
+	} 
+	// More A contact
 	 function moreContact(){
 	 		// Set stringified object to localStorage
 		 // Store data in localstorage 
